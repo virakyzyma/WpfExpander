@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfExpander.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExpander"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="MenuButton" TargetType="Button">
+            <Setter Property="Margin" Value="0, 5, 0, 5"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Background" Value="LightSteelBlue"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="AntiqueWhite">
+            <TextBlock FontSize="50" FontWeight="Bold" VerticalAlignment="Center" Padding="20, 0, 0, 0" Margin="144,0,0,0">Менеджер продуктов</TextBlock>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="productsListBox" HorizontalAlignment="Left" Width="802" Margin="-2,152,0,0" Grid.ColumnSpan="2"/>
+            <Border Margin="0,0,1,192" Grid.ColumnSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0, 0" EndPoint="0, 1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="AntiqueWhite" />
+                            <GradientStop Offset="1.0" Color="White" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <DockPanel LastChildFill="False" >
+                    <Button Name="addProductButton" DockPanel.Dock="Top" Style="{StaticResource MenuButton}" Click="addProductButton_Click" Width="287">Добавить продукт</Button>
+                    <Button Name="deleteProductButton" DockPanel.Dock="Top" Style="{StaticResource ResourceKey=MenuButton}" Click="deleteProductButton_Click" Width="286">Удалить продукт</Button>
+                    <Button Name="exitButton" DockPanel.Dock="Bottom" Style="{StaticResource ResourceKey=MenuButton}" Background="White" Click="exitButton_Click">Выход</Button>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
